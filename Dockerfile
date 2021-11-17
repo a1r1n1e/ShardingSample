@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["ShardingSample.csproj", ""]
-RUN dotnet restore "./ShardingSample.csproj"
+COPY ["ShardingSample.csproj", "./"]
+RUN dotnet restore "ShardingSample.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/"
 RUN dotnet build "ShardingSample.csproj" -c Release -o /app/build
 
 FROM build AS publish
