@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>cb784ca9-3e32-45df-b6b2-5bf92daa835f</ProjectGuid>
+    <ProjectGuid>c2828217-c647-4786-b80c-0c2d515398ae</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>sharding_sample</DockerServiceName>

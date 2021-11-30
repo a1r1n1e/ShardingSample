@@ -8,18 +8,42 @@ services:
   sharding_sample:
     image: sharding-sample:latest
     depends_on:
-      - "postgres_image"
+      - "postgres_image_0"
+      - "postgres_image_1"
+      - "postgres_image_2"
     build:
-      context: .
+      context: ShardingSample/
       dockerfile: Dockerfile
     ports:
       - "8000:80"
-    environment:
-      DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=postgres;username=postgres;password=postgres"
     networks:
       - simple-network
 
-  postgres_image:
+  postgres_image_0:
+    image: postgres:latest
+    ports:
+      - "5432"
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+    networks:
+      - simple-network
+
+  postgres_image_1:
+    image: postgres:latest
+    ports:
+     - "5432"
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+    networks:
+     - simple-network
+
+  postgres_image_2:
     image: postgres:latest
     ports:
       - "5432"
